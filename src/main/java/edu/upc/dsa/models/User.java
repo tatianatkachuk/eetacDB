@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 //Usuario = Jugador
-public class User extends HashMap<String, User> {
+public class User {
 
 
     //aplicando modelo de usuario del juego
@@ -35,6 +35,9 @@ public class User extends HashMap<String, User> {
     public User(String id) {
     }
 
+    public User(){
+
+    }
     //constructor a parte para añadir usuarios con lo básico
     public User(String id, String username, String password) {
         this.id = id;

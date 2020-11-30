@@ -46,7 +46,7 @@ public class GameService {
         this.gservice.addUser(id, username, password);
 
         return Response.status(201).build();
-        //me sale error 415 undomented
+       
     }
 
     @GET
@@ -56,13 +56,13 @@ public class GameService {
             @ApiResponse(code = 404, message = "UserNotFoundException"),
 
     })
-    @Path("/getusers/{id}")
+    @Path("/getuser/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response getUser(@PathParam("id") String id ) {
         User user = null;
         try {
             user = this.gservice.getUser(id);
-            GenericEntity<HashMap<String,User>> entity = new GenericEntity<HashMap<String,User>>(user){};
+            GenericEntity<User> entity = new GenericEntity<User>(user){};
             return Response.status(201).entity(entity).build();
         }
         catch (UserNotFoundException e) {
